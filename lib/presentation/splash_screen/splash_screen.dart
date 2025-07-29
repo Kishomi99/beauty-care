@@ -1,3 +1,5 @@
+import 'package:BeautyCare/core/constants/image_constant.dart';
+import 'package:BeautyCare/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,9 +11,14 @@ class SplashScreen extends GetWidget<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.darkBg,
       body: SafeArea(
         child: Center(
-          child: Text('Splash Screen'),
+          child: Image.asset(
+            ImageConstant.logo,
+            width: 200,
+            height: 200,
+          ),
         ),
       ),
     );

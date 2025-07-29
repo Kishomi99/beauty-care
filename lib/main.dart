@@ -1,4 +1,5 @@
-import 'package:beauty_care/route/app_route.dart';
+import 'package:BeautyCare/localization/app_localization.dart';
+import 'package:BeautyCare/route/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Beauty Care',
+      translations: AppLocalization(),
+      locale: Get.deviceLocale, // Automatically use the device's locale
+      fallbackLocale: const Locale('en', 'US'),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
