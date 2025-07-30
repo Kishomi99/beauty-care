@@ -1,4 +1,4 @@
-import 'package:BeautyCare/core/constants/app_colors.dart';
+import 'package:beauty_care/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextStyle {

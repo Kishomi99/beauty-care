@@ -1,4 +1,4 @@
-import 'package:BeautyCare/presentation/create_account_screen/controller/create_account_controller.dart';
+import 'package:beauty_care/presentation/create_account_screen/controller/create_account_controller.dart';
 import 'package:get/get.dart';
 
 class CreateAccountBinding extends Bindings {

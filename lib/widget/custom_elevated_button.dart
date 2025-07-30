@@ -1,6 +1,6 @@
-import 'package:BeautyCare/core/constants/app_colors.dart';
-import 'package:BeautyCare/core/constants/app_text_style.dart';
-import 'package:BeautyCare/widget/base_button.dart';
+import 'package:beauty_care/core/constants/app_colors.dart';
+import 'package:beauty_care/core/constants/app_text_style.dart';
+import 'package:beauty_care/widget/base_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends BaseButton {

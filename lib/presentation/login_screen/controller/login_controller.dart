@@ -1,7 +1,8 @@
-import 'package:BeautyCare/core/utils/pref_utils.dart';
-import 'package:BeautyCare/data/api_client/api_client.dart';
-import 'package:BeautyCare/presentation/login_screen/model/login_model.dart';
-import 'package:BeautyCare/presentation/login_screen/model/login_response_model.dart';
+import 'package:beauty_care/core/utils/pref_utils.dart';
+import 'package:beauty_care/data/api_client/api_client.dart';
+import 'package:beauty_care/presentation/login_screen/model/login_model.dart';
+import 'package:beauty_care/presentation/login_screen/model/login_response_model.dart';
+import 'package:beauty_care/route/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,12 +13,6 @@ class LoginController extends GetxController {
   RxBool isLoading = false.obs;
 
   LoginModel loginModel = LoginModel();
-
-  @override
-  void onReady() async {
-    super.onReady();
-    // Additional initialization if needed
-  }
 
   Future<void> callLogin() async {
     loginModel = LoginModel(
@@ -39,14 +34,14 @@ class LoginController extends GetxController {
           isLoading.value = false;
           Get.dialog(
             AlertDialog(
-              title: Text('Error'),
+              title: const Text('Error'),
               content: Text(error.toString()),
               actions: [
                 TextButton(
                   onPressed: () {
                     Get.back();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             ),
@@ -62,10 +57,9 @@ class LoginController extends GetxController {
   Future onCreateLoginSuccess(LoginResponseModel response) async {
     await PrefUtils.setToken(response.accessToken);
     await PrefUtils.setUserId(response.user.id);
-    //print(response.accessToken);
     await PrefUtils.setLogged(true);
-    print("login success");
-    // Get.offAllNamed(AppRoutes.mainScreen);
+    // print("login success");
+    Get.offAllNamed(AppRoute.homeScreen);
     clearValue();
   }
 

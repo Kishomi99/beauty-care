@@ -5,7 +5,7 @@ class PrefUtils {
 
   Future<void> init() async {
     _prefs ??= await SharedPreferences.getInstance();
-    print('SharedPreference Initialized');
+    //  print('SharedPreference Initialized');
   }
 
   static Future<void> clearPreferences() async {

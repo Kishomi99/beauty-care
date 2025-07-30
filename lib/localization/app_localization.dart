@@ -29,6 +29,11 @@ class AppLocalization extends Translations {
           'val_phone': 'Please enter your phone number',
           'val_phone2': 'Please enter a valid phone number',
           'val_password2': 'Password must be at least 6 characters',
+
+          //home screen
+          'find_your_style': 'Find\nYour Style!',
+          'nearby_stores': 'Nearby Beauty Stores',
+          'search': 'Search',
         }
       };
 }

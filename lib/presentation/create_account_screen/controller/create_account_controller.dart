@@ -1,9 +1,8 @@
-import 'package:BeautyCare/core/utils/pref_utils.dart';
-import 'package:BeautyCare/data/api_client/api_client.dart';
-import 'package:BeautyCare/data/models/register_user_model.dart';
-import 'package:BeautyCare/presentation/login_screen/model/login_model.dart';
-import 'package:BeautyCare/presentation/login_screen/model/login_response_model.dart';
-import 'package:BeautyCare/route/app_route.dart';
+import 'package:beauty_care/core/utils/pref_utils.dart';
+import 'package:beauty_care/data/api_client/api_client.dart';
+import 'package:beauty_care/data/models/register_user_model.dart';
+import 'package:beauty_care/presentation/login_screen/model/login_model.dart';
+import 'package:beauty_care/route/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,16 +18,8 @@ class CreateAccountController extends GetxController {
   RxBool isLoading = false.obs;
 
   RxBool loged = false.obs;
-  var token;
-  var prefUtils;
 
   LoginModel loginModel = LoginModel();
-
-  @override
-  void onReady() async {
-    super.onReady();
-    // Additional initialization if needed
-  }
 
   RegisterUserModel get registerUserModel {
     return RegisterUserModel(
@@ -53,14 +44,14 @@ class CreateAccountController extends GetxController {
           isLoading.value = false;
           Get.dialog(
             AlertDialog(
-              title: Text('Error'),
+              title: const Text('Error'),
               content: Text(error.toString()),
               actions: [
                 TextButton(
                   onPressed: () {
                     Get.back();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             ),

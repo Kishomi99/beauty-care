@@ -1,7 +1,6 @@
-import 'package:BeautyCare/core/constants/api_end_points.dart';
-import 'package:BeautyCare/core/utils/pref_utils.dart';
-import 'package:BeautyCare/data/models/response_model/response_model.dart';
-import 'package:BeautyCare/presentation/login_screen/model/login_response_model.dart';
+import 'package:beauty_care/core/constants/api_end_points.dart';
+import 'package:beauty_care/data/models/response_model/response_model.dart';
+import 'package:beauty_care/presentation/login_screen/model/login_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
@@ -19,11 +18,11 @@ class ApiClient extends GetConnect {
       "Accept": "application/json",
       'Content-type': 'application/json',
     },
-    connectTimeout: Duration(seconds: 10),
+    connectTimeout: const Duration(seconds: 10),
     baseUrl: ApiEndPoints.baseUrl,
   ));
   void _initializeDio() {
-    final token = Get.find<PrefUtils>().getToken();
+    //  final token = Get.find<PrefUtils>().getToken();
   }
 
   Future login(

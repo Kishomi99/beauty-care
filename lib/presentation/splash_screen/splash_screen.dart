@@ -1,5 +1,5 @@
-import 'package:BeautyCare/core/constants/image_constant.dart';
-import 'package:BeautyCare/core/constants/app_colors.dart';
+import 'package:beauty_care/core/constants/image_constant.dart';
+import 'package:beauty_care/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

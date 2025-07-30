@@ -1,4 +1,4 @@
-import 'package:BeautyCare/presentation/login_screen/controller/login_controller.dart';
+import 'package:beauty_care/presentation/login_screen/controller/login_controller.dart';
 import 'package:get/get.dart';
 
 /// A binding class for the LoginOneScreen.

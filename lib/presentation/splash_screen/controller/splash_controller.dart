@@ -1,5 +1,5 @@
-import 'package:BeautyCare/core/utils/pref_utils.dart';
-import 'package:BeautyCare/route/app_route.dart';
+import 'package:beauty_care/core/utils/pref_utils.dart';
+import 'package:beauty_care/route/app_route.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -14,13 +14,12 @@ class SplashController extends GetxController {
     await PrefUtils().init();
 
     String token = PrefUtils().getToken();
-    print('token is $token');
-    Get.offAllNamed(AppRoute.loginScreen);
+    // print('token is $token');
 
-    /* if (token.isNotEmpty) {
-      //  Get.offAllNamed(AppRoute.mainScreen);
+    if (token.isNotEmpty) {
+      Get.offAllNamed(AppRoute.homeScreen);
     } else {
       Get.offAllNamed(AppRoute.loginScreen);
-    }*/
+    }
   }
 }

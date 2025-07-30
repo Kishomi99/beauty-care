@@ -1,5 +1,5 @@
-import 'package:BeautyCare/localization/app_localization.dart';
-import 'package:BeautyCare/route/app_route.dart';
+import 'package:beauty_care/localization/app_localization.dart';
+import 'package:beauty_care/route/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

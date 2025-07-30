@@ -1,5 +1,5 @@
-import 'package:BeautyCare/core/constants/app_colors.dart';
-import 'package:BeautyCare/core/constants/app_text_style.dart';
+import 'package:beauty_care/core/constants/app_colors.dart';
+import 'package:beauty_care/core/constants/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -26,6 +26,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool? obscureText;
   final bool autoFocus;
   final String? lableText;
+  final InputDecoration? customdecoration;
 
   const CustomTextFormField({
     super.key,
@@ -52,6 +53,7 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.autoFocus = false,
     this.lableText,
+    this.customdecoration,
   }) : super();
 
   @override
@@ -60,7 +62,7 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       validator: validator,
-      decoration: decoration,
+      decoration: customdecoration ?? decoration,
       focusNode: focusNode,
       onTapOutside: (event) {
         if (focusNode != null) {
@@ -90,7 +92,7 @@ class CustomTextFormField extends StatelessWidget {
         isDense: true,
         contentPadding: contentPadding ??
             const EdgeInsets.only(top: 12, bottom: 12, left: 15),
-        fillColor: fillColor ?? Color.fromARGB(255, 245, 217, 64),
+        fillColor: fillColor ?? const Color.fromARGB(255, 245, 217, 64),
         filled: filled,
         border: borderDecoration ??
             OutlineInputBorder(

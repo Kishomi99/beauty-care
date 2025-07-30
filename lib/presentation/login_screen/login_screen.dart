@@ -1,9 +1,9 @@
-import 'package:BeautyCare/core/constants/app_colors.dart';
-import 'package:BeautyCare/core/constants/app_text_style.dart';
-import 'package:BeautyCare/core/constants/image_constant.dart';
-import 'package:BeautyCare/route/app_route.dart';
-import 'package:BeautyCare/widget/custom_elevated_button.dart';
-import 'package:BeautyCare/widget/custom_text_form_field.dart';
+import 'package:beauty_care/core/constants/app_colors.dart';
+import 'package:beauty_care/core/constants/app_text_style.dart';
+import 'package:beauty_care/core/constants/image_constant.dart';
+import 'package:beauty_care/route/app_route.dart';
+import 'package:beauty_care/widget/custom_elevated_button.dart';
+import 'package:beauty_care/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,7 @@ class LoginScreen extends GetWidget<LoginController> {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
-    double screenWidth = mediaQuery.size.width;
+    //double screenWidth = mediaQuery.size.width;
     double screenHeight = mediaQuery.size.height;
     return Scaffold(
       backgroundColor: AppColors.lightBg,
@@ -47,12 +47,10 @@ class LoginScreen extends GetWidget<LoginController> {
                       ),
                       Text(
                         'Login',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline4
-                            ?.copyWith(color: Colors.white),
+                        style: AppTextStyle.buttonText.copyWith(
+                            fontSize: 25, fontWeight: FontWeight.w400),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       CustomTextFormField(
                         controller: controller.emailController,
                         textInputType: TextInputType.emailAddress,
@@ -110,6 +108,7 @@ class LoginScreen extends GetWidget<LoginController> {
                         children: [
                           Text(
                             "dont_have_account".tr,
+                            maxLines: 2,
                             style: AppTextStyle.textButtonText.copyWith(
                               color: AppColors.darkBg,
                             ),

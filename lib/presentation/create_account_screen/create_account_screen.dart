@@ -1,7 +1,7 @@
-import 'package:BeautyCare/core/constants/app_colors.dart';
-import 'package:BeautyCare/core/constants/app_text_style.dart';
-import 'package:BeautyCare/widget/custom_elevated_button.dart';
-import 'package:BeautyCare/widget/custom_text_form_field.dart';
+import 'package:beauty_care/core/constants/app_colors.dart';
+import 'package:beauty_care/core/constants/app_text_style.dart';
+import 'package:beauty_care/widget/custom_elevated_button.dart';
+import 'package:beauty_care/widget/custom_text_form_field.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,18 +36,16 @@ class CreateAccountScreen extends GetWidget<CreateAccountController> {
                         Row(
                           children: [
                             IconButton(
-                              icon: Icon(Icons.arrow_back, color: Colors.white),
+                              icon: const Icon(Icons.arrow_back,
+                                  color: Colors.white),
                               onPressed: () {
                                 Get.back();
                               },
                             ),
-                            Text(
-                              'create_account'.tr,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline4
-                                  ?.copyWith(color: Colors.white),
-                            ),
+                            Text('create_account'.tr,
+                                style: AppTextStyle.buttonText.copyWith(
+                                  fontSize: 25,
+                                )),
                           ],
                         ),
                         SizedBox(height: screenHeight * 0.03),
@@ -190,7 +188,7 @@ class CreateAccountScreen extends GetWidget<CreateAccountController> {
           lable,
           style: AppTextStyle.labelFormText,
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Text(
           "*".tr,
           style: AppTextStyle.labelFormText.copyWith(
