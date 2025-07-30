@@ -1,16 +1,21 @@
 import 'package:beauty_care/core/constants/app_colors.dart';
 import 'package:beauty_care/data/models/beauty_store_model.dart';
+import 'package:beauty_care/presentation/home_screen/controller/home_controller.dart';
+import 'package:beauty_care/route/app_route.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class BeautyStoreCard extends StatelessWidget {
   final BeautyStore store;
+  HomeController homeController = Get.find<HomeController>();
 
-  const BeautyStoreCard({super.key, required this.store});
+  BeautyStoreCard({super.key, required this.store});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       clipBehavior: Clip.antiAlias,
       child: Stack(
@@ -20,7 +25,7 @@ class BeautyStoreCard extends StatelessWidget {
             height: 200,
             width: double.infinity,
             child: Image.asset(
-              store.imagePath,
+              store.imagePath!,
               fit: BoxFit.cover,
             ),
           ),
@@ -43,11 +48,21 @@ class BeautyStoreCard extends StatelessWidget {
             right: 10,
             child: CircleAvatar(
               backgroundColor: Colors.white70,
-              child: IconButton(
-                icon: const Icon(Icons.favorite_border, color: Colors.pink),
-                onPressed: () {
-                  // Save or toggle favorite
-                },
+              child: Obx(
+                () => IconButton(
+                  icon: homeController.isFavorite.value == true
+                      ? const Icon(Icons.favorite, color: Colors.red)
+                      : const Icon(Icons.favorite_border, color: Colors.grey),
+                  onPressed: () {
+                    if (homeController.isFavorite.value == true) {
+                      homeController.isFavorite.value = false;
+                      homeController.removeItem(store);
+                    } else {
+                      homeController.isFavorite.value = true;
+                      homeController.addItem(store);
+                    }
+                  },
+                ),
               ),
             ),
           ),
@@ -59,7 +74,7 @@ class BeautyStoreCard extends StatelessWidget {
             right: 16,
             child: Container(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(115, 119, 110, 110),
+                color: AppColors.backBlur,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -72,7 +87,7 @@ class BeautyStoreCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          store.name,
+                          store.name!,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -97,7 +112,11 @@ class BeautyStoreCard extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // Navigate to details screen
+                            Get.toNamed(AppRoute.storeViewScreen,
+                                arguments: store);
+                          },
                           icon: const Icon(Icons.arrow_forward,
                               color: Colors.black, size: 30)),
                     ),

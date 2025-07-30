@@ -8,4 +8,6 @@ class AppColors {
   static const Color goldGlow = Color(0xFFFFD700);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
+  static const Color backBlur = Color.fromARGB(115, 68, 61, 61);
+  static const Color textColor = Color.fromARGB(255, 174, 170, 170);
 }

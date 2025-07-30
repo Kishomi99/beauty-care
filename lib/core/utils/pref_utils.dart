@@ -15,6 +15,7 @@ class PrefUtils {
   static Future<void> logout() async {
     await _prefs?.remove('token');
     await _prefs?.setBool('logged', false);
+    print('User logged out: ${_prefs?.getString('token')}');
   }
 
   static Future<void> setLogged(bool value) async {
@@ -23,6 +24,14 @@ class PrefUtils {
 
   static Future<void> setToken(String value) async {
     await _prefs!.setString('token', value);
+  }
+
+  static Future<void> setWishlistIds(List<String> ids) async {
+    await _prefs!.setStringList('wishlist', ids);
+  }
+
+  static Future<void> removeWishId(String id) async {
+    await _prefs?.remove('wishlist');
   }
 
   static Future<void> setUserId(int value) async {
@@ -35,5 +44,13 @@ class PrefUtils {
 
   int getUserId() {
     return int.parse(_prefs!.getString('id') ?? '0');
+  }
+
+  static List<String> getWishlistIds() {
+    return _prefs!.getStringList('wishlist_ids') ?? [];
+  }
+
+  bool isLogged() {
+    return _prefs!.getBool('logged') ?? false;
   }
 }

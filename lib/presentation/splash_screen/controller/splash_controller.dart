@@ -17,7 +17,7 @@ class SplashController extends GetxController {
     // print('token is $token');
 
     if (token.isNotEmpty) {
-      Get.offAllNamed(AppRoute.homeScreen);
+      Get.offAllNamed(AppRoute.bottomNavigationMenu);
     } else {
       Get.offAllNamed(AppRoute.loginScreen);
     }

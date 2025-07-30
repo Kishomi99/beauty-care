@@ -1,13 +1,17 @@
 class BeautyStore {
-  final String name;
-  final String location;
-  final double distanceKm;
-  final String imagePath;
+  String id;
+  String? name;
+  String? location;
+  double? distanceKm;
+  String? imagePath;
+  bool? isFavorite;
 
   BeautyStore({
-    required this.name,
-    required this.location,
-    required this.distanceKm,
-    required this.imagePath,
+    required this.id,
+    this.name,
+    this.location,
+    this.distanceKm,
+    this.imagePath,
+    this.isFavorite,
   });
 }

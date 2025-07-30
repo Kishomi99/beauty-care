@@ -59,7 +59,7 @@ class LoginController extends GetxController {
     await PrefUtils.setUserId(response.user.id);
     await PrefUtils.setLogged(true);
     // print("login success");
-    Get.offAllNamed(AppRoute.homeScreen);
+    Get.offAllNamed(AppRoute.bottomNavigationMenu);
     clearValue();
   }
 

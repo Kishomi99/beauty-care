@@ -31,4 +31,11 @@ class AppTextStyle {
     fontFamily: fontFamily,
     color: AppColors.accentGold,
   );
+
+  static const TextStyle viewText = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamily,
+    color: AppColors.textColor,
+  );
 }

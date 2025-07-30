@@ -34,6 +34,17 @@ class AppLocalization extends Translations {
           'find_your_style': 'Find\nYour Style!',
           'nearby_stores': 'Nearby Beauty Stores',
           'search': 'Search',
+
+          'home': 'Home',
+          'wishlist': 'Wishlist',
+          'profile': 'Profile',
+
+          'call': 'Call',
+          "message": "Message",
+          'direction': "direction",
+          'book_now': "Book Now",
+          'facebook': "Facebook",
+          'website': "Website",
         }
       };
 }

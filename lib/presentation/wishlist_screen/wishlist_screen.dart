@@ -1,0 +1,83 @@
+import 'package:beauty_care/core/constants/app_colors.dart';
+import 'package:beauty_care/presentation/wishlist_screen/controller/wishlist_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class WishListScreen extends GetWidget<WishListController> {
+  WishListScreen({super.key});
+  WishListController wishListController = Get.put(WishListController());
+
+  @override
+  Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+    double screenWidth = mediaQuery.size.width;
+    double screenHeight = mediaQuery.size.height;
+    return Scaffold(
+      backgroundColor: AppColors.darkBg,
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+            vertical: screenHeight * 0.02, horizontal: screenWidth * 0.05),
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 5,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppColors.goldGlow,
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.goldGlow.withOpacity(0.7),
+                          offset: const Offset(40, 0),
+                          blurRadius: 30,
+                          spreadRadius: 10,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 30),
+                  Text(
+                    "wishlist".tr,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.02),
+              Expanded(
+                child: Obx(() {
+                  if (wishListController.wishList.isEmpty) {
+                    return const Center(
+                      child: Text(
+                        "No items in wishlist",
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                    );
+                  }
+                  return ListView.builder(
+                    itemCount: wishListController.wishList.length,
+                    itemBuilder: (context, index) {
+                      final item = wishListController.wishList[index];
+                      return ListTile(
+                        title: Text(item.name!,
+                            style: const TextStyle(color: Colors.white)),
+                      );
+                    },
+                  );
+                }),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

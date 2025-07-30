@@ -3,12 +3,15 @@ import 'package:beauty_care/core/constants/app_text_style.dart';
 import 'package:beauty_care/presentation/home_screen/widget/store_card_widget.dart';
 import 'package:beauty_care/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import 'controller/home_controller.dart';
 
 class HomeScreen extends GetWidget<HomeController> {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  HomeController homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -74,26 +77,31 @@ class HomeScreen extends GetWidget<HomeController> {
                 ),
               ),
               const SizedBox(height: 30),
-              CustomTextFormField(
-                controller: controller.searchController,
-                hintText: 'search'.tr,
-                filled: false,
-                textStyle: AppTextStyle.hintText.copyWith(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-                hintStyle: AppTextStyle.hintText.copyWith(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                ),
-                borderDecoration: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: const BorderSide(color: Colors.grey, width: 1),
-                ),
-                prefix: const Icon(
-                  Icons.search_rounded,
-                  color: Colors.grey,
-                  size: 30,
+              GestureDetector(
+                onTap: () {
+                  homeController.searchStores();
+                },
+                child: CustomTextFormField(
+                  controller: homeController.searchController,
+                  hintText: 'search'.tr,
+                  filled: false,
+                  textStyle: AppTextStyle.hintText.copyWith(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  hintStyle: AppTextStyle.hintText.copyWith(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  borderDecoration: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: const BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  prefix: const Icon(
+                    Icons.search_rounded,
+                    color: Colors.grey,
+                    size: 30,
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -111,10 +119,10 @@ class HomeScreen extends GetWidget<HomeController> {
                       ListView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: controller.stores.length,
+                        itemCount: homeController.stores.length,
                         itemBuilder: (context, index) {
                           return BeautyStoreCard(
-                              store: controller.stores[index]);
+                              store: homeController.stores[index]);
                         },
                       ),
                     ],
